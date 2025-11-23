@@ -1,0 +1,16 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background: Rounded Square in Royal Blue -->
+    <rect width="512" height="512" rx="128" fill="#2563EB"/>
+    
+    <!-- Letter S: White, Centered, Modern Sans-Serif Font -->
+    <text x="50%" y="50%" 
+          font-family="Arial, Helvetica, sans-serif" 
+          font-weight="bold" 
+          font-size="350" 
+          fill="white" 
+          text-anchor="middle" 
+          dominant-baseline="central" 
+          dy="25">
+        S
+    </text>
+</svg>
