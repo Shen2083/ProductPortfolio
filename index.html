@@ -95,7 +95,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* Visual Container for Images - Now Larger */
+        /* Visual Container for Images - Full Width Focus */
         .visual-container {
             background-color: #F8FAFC;
             border: 1px solid #E2E8F0;
@@ -104,7 +104,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 1rem;
+            margin-top: 2rem; /* Space above image */
         }
 
         .visual-container img {
@@ -126,7 +126,7 @@
             border: 1px solid #E2E8F0;
         }
 
-        /* CSS Placeholder Visuals for PwC */
+        /* CSS Placeholder Visuals for PwC/Standard Bank */
         .css-icon-visual {
             height: 160px;
             display: flex;
@@ -135,7 +135,7 @@
             justify-content: center;
             background: #F8FAFC;
             border-radius: 8px;
-            margin-top: 1rem;
+            margin-top: 2rem;
             color: #94A3B8;
             border: 1px dashed #CBD5E1;
         }
@@ -168,7 +168,7 @@
 <body>
 
     <!-- Modern Dark Hero Section -->
-    <header class="bg-slate-900 text-white py-16 px-6 md:px-12 lg:px-24 mb-12 relative overflow-hidden">
+    <header class="bg-slate-900 text-white py-16 px-6 md:px-12 lg:px-24 mb-8 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div class="absolute -bottom-8 left-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
 
@@ -181,6 +181,12 @@
                     </div>
                     <h1 class="text-5xl md:text-6xl font-bold mb-2 tracking-tight text-white">Shen Vanamamalai</h1>
                     <p class="text-2xl md:text-3xl font-light text-slate-300">Product Leader & <span class="text-gradient font-semibold">Strategist</span></p>
+                    
+                    <!-- New Certifications Section -->
+                    <div class="mt-4 flex flex-wrap gap-3 text-sm text-slate-400">
+                        <span class="flex items-center"><i class="fas fa-certificate text-yellow-500 mr-2"></i> Product Faculty (Senior PM)</span>
+                        <span class="flex items-center"><i class="fas fa-robot text-blue-400 mr-2"></i> AI PM Bootcamp</span>
+                    </div>
                 </div>
                 <div class="mt-6 md:mt-0 flex flex-wrap gap-3">
                     <div class="text-center px-4 py-2 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm">
@@ -188,7 +194,7 @@
                         <div class="text-xs text-slate-400 uppercase">Revenue Impact</div>
                     </div>
                     <div class="text-center px-4 py-2 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm">
-                        <div class="text-2xl font-bold text-white">80M+</div>
+                        <div class="text-2xl font-bold text-white">60M+</div>
                         <div class="text-xs text-slate-400 uppercase">Daily Users</div>
                     </div>
                     <div class="text-center px-4 py-2 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm">
@@ -198,7 +204,7 @@
                 </div>
             </div>
             <p class="mt-6 text-slate-400 max-w-2xl text-lg leading-relaxed">
-                Specializing in the intersection of <span class="text-white">Marketplace Economics</span>, <span class="text-white">Behavioural Science</span>, and <span class="text-white">AI Innovation</span>. I turn complex data problems into simple, high-impact product experiences.
+                Specializing in the intersection of <span class="text-white">Marketplace Economics</span>, <span class="text-white">Behavioural Science</span>, and <span class="text-white">AI Innovation</span>. With a strong <strong>Engineering Background</strong>, I turn complex data problems into simple, high-impact product experiences.
             </p>
         </div>
     </header>
@@ -211,7 +217,7 @@
                 <div class="card-body">
                     <div class="text-blue-500 mb-3"><i class="fas fa-bullseye fa-2x"></i></div>
                     <h3 class="font-bold text-lg mb-2 text-slate-800">Demand-First Philosophy</h3>
-                    <p class="text-sm text-slate-600">Aligning user intent ("Push") with product design ("Pull"). I build systems that amplify natural user behavior rather than forcing it.</p>
+                    <p class="text-sm text-slate-600">Aligning user intent ("Push") with product design ("Pull"). My frameworks have been <strong>adopted globally by multiple teams at Indeed</strong>.</p>
                 </div>
             </div>
             <div class="card border-t-4 border-purple-500">
@@ -236,85 +242,108 @@
             <div class="section-line"></div>
         </div>
 
-        <!-- Switched to Single Column for better visibility of charts -->
+        <!-- Full Width Cards Stack -->
         <div class="flex flex-col gap-12 mb-20">
             
-            <!-- Case Study 1 -->
+            <!-- Case Study 1: Campaign Recommendations -->
             <div class="card">
                 <div class="card-header flex flex-wrap justify-between items-center">
                     <h3 class="text-2xl font-bold text-slate-800">AI-Powered Campaign Recommendations</h3>
                     <span class="tag bg-green-100 text-green-700 border border-green-200 mt-2 md:mt-0">Scale & Revenue</span>
                 </div>
                 <div class="card-body">
-                    <div class="grid md:grid-cols-1 gap-8">
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Challenge</h4>
-                                <p class="text-base text-slate-700">Employers often under-spent or misallocated budgets due to lack of insight. I identified an opportunity to use ML to guide them toward high-value actions.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
-                                <p class="text-base text-slate-700">I owned the product strategy for a multi-signal ML model that ranked actions (e.g., "Adjust Bid"). I drove the implementation of a <strong>one-click side-panel design</strong> to reduce friction, leveraging "least effort" psychology.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
-                                <div class="flex gap-4 mt-2">
-                                    <div class="bg-slate-50 p-3 rounded border border-slate-200">
-                                        <span class="block text-xl font-bold text-green-600">£60M</span>
-                                        <span class="text-xs text-slate-500">Revenue Uplift</span>
-                                    </div>
-                                    <div class="bg-slate-50 p-3 rounded border border-slate-200">
-                                        <span class="block text-xl font-bold text-slate-800">150k+</span>
-                                        <span class="text-xs text-slate-500">Employers</span>
-                                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Challenge</h4>
+                            <p class="text-base text-slate-700">Employers often under-spent or misallocated budgets due to lack of insight. I identified an opportunity to use ML to guide them toward high-value actions.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
+                            <p class="text-base text-slate-700">I owned the product strategy for a multi-signal ML model that ranked actions (e.g., "Adjust Bid"). I drove the implementation of a <strong>one-click side-panel design</strong> to reduce friction, leveraging "least effort" psychology.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
+                            <div class="flex gap-4 mt-2">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <span class="block text-xl font-bold text-green-600">£60M</span>
+                                    <span class="text-xs text-slate-500">Revenue Uplift</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <span class="block text-xl font-bold text-slate-800">150k+</span>
+                                    <span class="text-xs text-slate-500">Employers</span>
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <div class="visual-container !mt-0 h-full justify-center">
-                                <img src="revenue_growth.png" alt="Revenue Growth Chart">
-                                <div class="caption">Fig 1: Cumulative revenue uplift</div>
-                            </div>
-                        </div>
+                    </div>
+                    <!-- Visual at Bottom -->
+                    <div class="visual-container">
+                        <img src="revenue_growth.png" alt="Revenue Growth Chart">
+                        <div class="caption">Fig 1: Cumulative revenue uplift</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Case Study 2 -->
+            <!-- Case Study 2: Action Center -->
             <div class="card">
                 <div class="card-header flex flex-wrap justify-between items-center">
-                    <h3 class="text-2xl font-bold text-slate-800">Action Center & Conversions</h3>
+                    <h3 class="text-2xl font-bold text-slate-800">Action Center</h3>
                     <span class="tag bg-purple-100 text-purple-700 border border-purple-200 mt-2 md:mt-0">UX & Adoption</span>
                 </div>
                 <div class="card-body">
-                    <div class="grid md:grid-cols-1 gap-8">
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Challenge</h4>
-                                <p class="text-base text-slate-700">SMEs struggled with complex campaign management. Recommendation logic that worked for enterprise clients didn't translate to small businesses.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
-                                <p class="text-base text-slate-700">I conceptualized and launched <strong>Action Center</strong>, a unified "Inbox" for prioritized recommendations. This centralization reduced "decision fatigue" and streamlined user journeys.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
-                                <div class="flex gap-4 mt-2">
-                                    <div class="bg-slate-50 p-3 rounded border border-slate-200">
-                                        <span class="block text-xl font-bold text-purple-600">100x</span>
-                                        <span class="text-xs text-slate-500">Adoption Growth</span>
-                                    </div>
-                                    <div class="bg-slate-50 p-3 rounded border border-slate-200">
-                                        <span class="block text-xl font-bold text-slate-800">$70M</span>
-                                        <span class="text-xs text-slate-500">Proj. Annual Uplift</span>
-                                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Challenge</h4>
+                            <p class="text-base text-slate-700">SMEs struggled with scattered prompts and notifications. Recommendation logic that worked for enterprise clients didn't translate to small businesses.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
+                            <p class="text-base text-slate-700">I conceptualized and launched <strong>Action Center</strong>, a unified "Inbox" for prioritized recommendations. This centralization reduced "decision fatigue" and streamlined user journeys.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
+                            <div class="flex gap-4 mt-2">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <span class="block text-xl font-bold text-purple-600">100x</span>
+                                    <span class="text-xs text-slate-500">Adoption Growth</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <span class="block text-xl font-bold text-slate-800">£4.4M</span>
+                                    <span class="text-xs text-slate-500">Annual Revenue</span>
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <div class="visual-container !mt-0 h-full justify-center">
-                                <img src="action_center_visits.png" alt="Action Center Visits">
-                                <div class="caption">Fig 2: Weekly unique visits growth</div>
+                    </div>
+                    <!-- Visual at Bottom -->
+                    <div class="visual-container">
+                        <img src="action_center_visits.png" alt="Action Center Visits">
+                        <div class="caption">Fig 2: Weekly unique visits growth</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2b: Conversions (New Section) -->
+            <div class="card border-l-4 border-indigo-500">
+                <div class="card-header flex flex-wrap justify-between items-center">
+                    <h3 class="text-2xl font-bold text-slate-800">Conversions Platform</h3>
+                    <span class="tag bg-indigo-100 text-indigo-700 border border-indigo-200 mt-2 md:mt-0">Monetization</span>
+                </div>
+                <div class="card-body">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Strategy</h4>
+                            <p class="text-base text-slate-700">I led the initiative to streamline sponsorship and payment processes for SMEs. By simplifying the funnel, I created new conversion pathways that reduced friction for first-time advertisers.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Commercial Impact</h4>
+                            <div class="flex gap-4 mt-2">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <span class="block text-xl font-bold text-indigo-600">£70M</span>
+                                    <span class="text-xs text-slate-500">Proj. Revenue Uplift</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <span class="block text-xl font-bold text-slate-800">£4.8M</span>
+                                    <span class="text-xs text-slate-500">Pilot Uplift</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -328,27 +357,24 @@
                     <span class="tag bg-blue-100 text-blue-700 border border-blue-200 mt-2 md:mt-0">Core Innovation</span>
                 </div>
                 <div class="card-body">
-                    <div class="grid md:grid-cols-1 gap-8">
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
-                                <p class="text-base text-slate-700">As <strong>DRI</strong>, I led the reimagining of the sponsorship framework. I applied behavioural simplification to create a "Performance-Driven" model. This backend logic laid the foundation for <strong>Talent Scout</strong>, Indeed's first external-facing AI agent.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
-                                <ul class="text-base text-slate-700 list-disc list-inside">
-                                    <li><span class="font-bold text-blue-600">25%</span> revenue uplift in pilots.</li>
-                                    <li><strong>59%</strong> increase in jobs receiving applications.</li>
-                                    <li>Significant reduction in user error rates.</li>
-                                </ul>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
+                            <p class="text-base text-slate-700">As <strong>DRI</strong>, I led the reimagining of the sponsorship framework. I applied behavioural simplification to create a "Performance-Driven" model. This backend logic laid the foundation for <strong>Talent Scout</strong>, Indeed's first external-facing AI agent.</p>
                         </div>
-                        <div>
-                            <div class="visual-container !mt-0 h-full justify-center">
-                                <img src="daily_seekers.png" alt="Daily Seekers">
-                                <div class="caption">Fig 3: Growth in Daily Active Job Seekers</div>
-                            </div>
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
+                            <ul class="text-base text-slate-700 list-disc list-inside">
+                                <li><span class="font-bold text-blue-600">25%</span> revenue uplift in pilots.</li>
+                                <li><strong>59%</strong> increase in jobs receiving applications.</li>
+                                <li>Significant reduction in user error rates.</li>
+                            </ul>
                         </div>
+                    </div>
+                    <!-- Visual at Bottom -->
+                    <div class="visual-container">
+                        <img src="daily_seekers.png" alt="Daily Seekers">
+                        <div class="caption">Fig 3: Growth in Daily Active Job Seekers</div>
                     </div>
                 </div>
             </div>
@@ -360,26 +386,23 @@
                     <span class="tag bg-orange-100 text-orange-700 border border-orange-200 mt-2 md:mt-0">Partnership</span>
                 </div>
                 <div class="card-body">
-                    <div class="grid md:grid-cols-1 gap-8">
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Strategy</h4>
-                                <p class="text-base text-slate-700">I led the product strategy for this first-of-its-kind integration. I orchestrated the embedding of Indeed's matching engine into Stack Overflow to reach passive tech talent seamlessly.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
-                                <div class="flex items-center gap-3 mt-2">
-                                    <span class="text-3xl font-bold text-orange-600">3.5x</span>
-                                    <span class="text-base text-slate-600">Increase in relevant tech applications during the pilot phase.</span>
-                                </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Strategy</h4>
+                            <p class="text-base text-slate-700">I led the product strategy for this first-of-its-kind integration. I orchestrated the embedding of Indeed's matching engine into Stack Overflow to reach passive tech talent seamlessly.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
+                            <div class="flex items-center gap-3 mt-2">
+                                <span class="text-3xl font-bold text-orange-600">3.5x</span>
+                                <span class="text-base text-slate-600">Increase in relevant tech applications during the pilot phase.</span>
                             </div>
                         </div>
-                        <div>
-                            <div class="visual-container !mt-0 h-full justify-center">
-                                <img src="stackoverflow_ui.png" alt="Stack Overflow UI">
-                                <div class="caption">Fig 4: Seamless UI Integration</div>
-                            </div>
-                        </div>
+                    </div>
+                    <!-- Visual at Bottom -->
+                    <div class="visual-container">
+                        <img src="stackoverflow_ui.png" alt="Stack Overflow UI">
+                        <div class="caption">Fig 4: Seamless UI Integration</div>
                     </div>
                 </div>
             </div>
@@ -391,28 +414,64 @@
                     <span class="tag bg-teal-100 text-teal-700 border border-teal-200 mt-2 md:mt-0">Quality & UX</span>
                 </div>
                 <div class="card-body">
-                    <div class="grid md:grid-cols-1 gap-8">
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
-                                <p class="text-base text-slate-700">I guided the shift from a fragmented set of 16 prompts to a sequenced, value-driven nudge system based on 5 priority dimensions (Salary, Title, Location, etc.).</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Result</h4>
-                                <p class="text-base text-slate-700">Higher acceptance rates and significantly lower abandonment on optimized jobs.</p>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
+                            <p class="text-base text-slate-700">I guided the shift from a fragmented set of 16 prompts to a sequenced, value-driven nudge system based on 5 priority dimensions (Salary, Title, Location, etc.).</p>
                         </div>
-                        <div class="visual-container !mt-0">
-                            <img src="job_optimisation_before_after.png" alt="Before After UI">
-                            <div class="caption">Fig 5: Transformation of Employer Journey</div>
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Result</h4>
+                            <p class="text-base text-slate-700">Higher acceptance rates and significantly lower abandonment on optimized jobs.</p>
                         </div>
+                    </div>
+                    <!-- Visual at Bottom -->
+                    <div class="visual-container">
+                        <img src="job_optimisation_before_after.png" alt="Before After UI">
+                        <div class="caption">Fig 5: Transformation of Employer Journey</div>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- Previous Innovations: PwC -->
+        <!-- Enterprise Efficiency: Standard Bank (New Section) -->
+        <div class="section-header">
+            <h2>Enterprise Efficiency <span class="text-slate-400 font-light">/ Standard Bank</span></h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="mb-20">
+            <div class="card border-l-4 border-gray-700">
+                <div class="card-body">
+                    <h3 class="font-bold text-2xl text-slate-800 mb-2">Cost Optimisation & Licensing</h3>
+                    <span class="tag bg-gray-100 text-gray-800 mb-6">Financial Services</span>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Strategic Initiative</h4>
+                            <p class="text-base text-slate-700">
+                                Led the international rollout of FlexNet Manager to oversee software assets across regions. Coordinated stakeholders in a matrixed, distributed organization to ensure compliance and efficiency.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Financial Impact</h4>
+                            <div class="flex gap-4 mt-2">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <span class="block text-xl font-bold text-slate-800">ZAR 200M+</span>
+                                    <span class="text-xs text-slate-500">Licensing Savings</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <span class="block text-xl font-bold text-slate-800">ZAR 65M</span>
+                                    <span class="text-xs text-slate-500">Oracle Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Previous Innovations: PwC (Grid Layout preserved here as no complex charts) -->
         <div class="section-header">
             <h2>Previous Innovations <span class="text-slate-400 font-light">/ PwC FinTech & LegalTech</span></h2>
             <div class="section-line"></div>
@@ -520,6 +579,29 @@
                             <div class="text-xs text-slate-500">Director, PwC UK</div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Toolkit Strip (Moved to end) -->
+        <section class="mb-12 bg-white rounded-xl p-6 border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-6">
+            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest">Technical Toolkit</h3>
+            <div class="flex flex-wrap gap-8 text-slate-600">
+                <div class="flex items-center gap-2" title="Python">
+                    <i class="fa-brands fa-python text-2xl text-blue-600"></i>
+                    <span class="font-semibold text-sm">Python</span>
+                </div>
+                <div class="flex items-center gap-2" title="AI Agents & LLMs">
+                    <i class="fa-solid fa-robot text-2xl text-purple-600"></i>
+                    <span class="font-semibold text-sm">AI Agents/LLMs</span>
+                </div>
+                <div class="flex items-center gap-2" title="Datadog & Telemetry">
+                    <i class="fa-solid fa-chart-line text-2xl text-indigo-600"></i>
+                    <span class="font-semibold text-sm">Datadog/Telemetry</span>
+                </div>
+                <div class="flex items-center gap-2" title="Mainframe Engineering">
+                    <i class="fa-solid fa-server text-2xl text-slate-600"></i>
+                    <span class="font-semibold text-sm">Mainframe Engineering</span>
                 </div>
             </div>
         </section>
