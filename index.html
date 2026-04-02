@@ -14,9 +14,9 @@
 
     <style>
         :root {
-            --primary: #3B82F6; /* Bright Blue */
-            --dark: #0F172A; /* Slate 900 */
-            --light: #F8FAFC; /* Slate 50 */
+            --primary: #3B82F6;
+            --dark: #0F172A;
+            --light: #F8FAFC;
         }
 
         body {
@@ -30,9 +30,14 @@
             font-family: 'Outfit', sans-serif;
         }
 
-        /* Hero Gradient Text */
         .text-gradient {
             background: linear-gradient(to right, #60A5FA, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-envis {
+            background: linear-gradient(to right, #0D9488, #2DD4BF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -56,7 +61,6 @@
             background: linear-gradient(to right, #E2E8F0, transparent);
         }
 
-        /* Modern Card Style */
         .card {
             background: white;
             border-radius: 12px;
@@ -95,7 +99,35 @@
             letter-spacing: 0.05em;
         }
 
-        /* Visual Container for Images - Full Width Focus */
+        /* STAR Label Styling */
+        .star-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #94A3B8;
+            margin-bottom: 0.5rem;
+        }
+
+        .star-label .star-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 800;
+        }
+
+        .star-s .star-letter { background: #DBEAFE; color: #2563EB; }
+        .star-t .star-letter { background: #FCE7F3; color: #DB2777; }
+        .star-a .star-letter { background: #D1FAE5; color: #059669; }
+        .star-r .star-letter { background: #FEF3C7; color: #D97706; }
+
         .visual-container {
             background-color: #F8FAFC;
             border: 1px solid #E2E8F0;
@@ -104,14 +136,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 2rem; /* Space above image */
+            margin-top: 2rem;
         }
 
         .visual-container img {
             border-radius: 6px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             border: 1px solid #E2E8F0;
-            width: 100%; /* Force full width */
+            width: 100%;
             height: auto;
         }
 
@@ -126,7 +158,6 @@
             border: 1px solid #E2E8F0;
         }
 
-        /* CSS Placeholder Visuals for PwC/Standard Bank */
         .css-icon-visual {
             height: 160px;
             display: flex;
@@ -140,7 +171,6 @@
             border: 1px dashed #CBD5E1;
         }
 
-        /* Future Vision Section Style */
         .future-card {
             background: linear-gradient(145deg, #1e293b, #0f172a);
             color: white;
@@ -180,7 +210,6 @@
                         <span class="flex items-center text-slate-400 text-xs font-medium uppercase tracking-widest"><i class="fas fa-map-marker-alt mr-1"></i> Maidstone, UK</span>
                     </div>
                     <h1 class="text-5xl md:text-6xl font-bold mb-2 tracking-tight text-white">Shen Vanamamalai</h1>
-                    <!-- Updated Title Here -->
                     <p class="text-2xl md:text-3xl font-light text-slate-300">Product & <span class="text-gradient font-semibold">Strategy</span></p>
                 </div>
                 <div class="mt-6 md:mt-0 flex flex-wrap gap-3">
@@ -231,13 +260,181 @@
             </div>
         </section>
 
-        <!-- Signature Achievements: Indeed -->
+        <!-- ============================================================ -->
+        <!-- FOUNDER & BUILDER: ENVIS -->
+        <!-- ============================================================ -->
+        <div class="section-header">
+            <h2>Founder & Builder <span class="text-gradient-envis font-semibold">/ Envis</span></h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="flex flex-col gap-12 mb-20">
+
+            <!-- Envis Platform -->
+            <div class="card border-l-4 border-teal-500">
+                <div class="card-header flex flex-wrap justify-between items-center">
+                    <h3 class="text-2xl font-bold text-slate-800">Envis: AI-Powered Household Financial Coaching</h3>
+                    <span class="tag bg-teal-100 text-teal-700 border border-teal-200 mt-2 md:mt-0">Solo Founder</span>
+                </div>
+                <div class="card-body">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">28% of UK adults experience financial stress, yet every fintech product on the market treats the individual as the atomic unit. Couples and families, where financial decisions are truly made, are systematically underserved. Existing tools default to surveillance-style "budget exceeded" alerts that feed shame spirals rather than enabling honest financial conversations between partners.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Build a fundamentally different financial platform that treats the <strong>household as the unit</strong>, replacing policing with emotionally-aware AI coaching. Secure UK Innovator Founder Visa endorsement to validate the innovation. Design an architecture that integrates Open Banking data with proprietary AI models to deliver proactive, empathetic coaching at scale.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">Designed and built the full-stack platform solo (Django, React, PostgreSQL), deployed on Render with Yapily Open Banking integration. Architected a 4-step onboarding flow, family member invitation system with token-based auth, Goals with linked bank accounts, transaction recategorisation, and a two-panel Coaching screen. Developed a comprehensive content strategy with 26 research-backed blog posts across five household layers. Ran Google Ads campaigns to validate demand. Secured endorsement from UK Endorsing Body (UKES) after rigorous evaluation.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">Full Platform</span>
+                                    <span class="text-xs text-slate-500">End-to-End, Solo Build</span>
+                                </div>
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">UKES</span>
+                                    <span class="text-xs text-slate-500">Endorsed Innovation</span>
+                                </div>
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">31+</span>
+                                    <span class="text-xs text-slate-500">Waitlist Sign-ups</span>
+                                </div>
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">7-8%</span>
+                                    <span class="text-xs text-slate-500">Ad CTR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Django</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">React</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">PostgreSQL</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Yapily Open Banking</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Render</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Gmail SMTP</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EnvisLM -->
+            <div class="card border-l-4 border-teal-400">
+                <div class="card-header flex flex-wrap justify-between items-center">
+                    <h3 class="text-2xl font-bold text-slate-800">EnvisLM: Proprietary Coaching Language Model</h3>
+                    <span class="tag bg-teal-100 text-teal-700 border border-teal-200 mt-2 md:mt-0">AI / ML</span>
+                </div>
+                <div class="card-body">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">General-purpose LLMs lack the domain-specific coaching behaviours needed for household financial guidance: they rarely ask reflective questions, fail to reference GBP amounts from transaction context, and provide generic advice rather than concrete, actionable next steps grounded in the user's actual financial data.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Train a proprietary small language model that outperforms base models on coaching-specific behaviours: reflective questioning, GBP-contextualised responses, concrete actionable guidance, coaching density per word, and multi-turn conversational coherence. Achieve this within a startup budget constraint.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">Generated 28,438 synthetic ChatML coaching dialogues grounded in behavioural finance research. Executed QLoRA fine-tuning of Llama 3 8B on RunPod A100 GPUs. Built a 5-dimension evaluation framework (reflective questions, GBP amounts, concrete next steps, coaching density, multi-turn coherence). Iterated through v0.1 and v0.2 with rigorous eval on 1,330 test examples. Published adapter weights on HuggingFace.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">2x</span>
+                                    <span class="text-xs text-slate-500">Coaching Content/Word</span>
+                                </div>
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">80.2%</span>
+                                    <span class="text-xs text-slate-500">ROUGE-L Win Rate</span>
+                                </div>
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">~$23</span>
+                                    <span class="text-xs text-slate-500">Total Training Cost</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Llama 3 8B</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">QLoRA</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">HuggingFace</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">RunPod A100</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">ChatML</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Envis Insight Engine -->
+            <div class="card border-l-4 border-teal-300">
+                <div class="card-header flex flex-wrap justify-between items-center">
+                    <h3 class="text-2xl font-bold text-slate-800">Envis Insight Engine: Multi-Modal Financial Intelligence</h3>
+                    <span class="tag bg-teal-100 text-teal-700 border border-teal-200 mt-2 md:mt-0">Deep Learning</span>
+                </div>
+                <div class="card-body">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">Financial distress detection in existing tools relies on simple threshold rules (e.g., "balance below £100"). This misses the nuanced signals: conversational tone, spending pattern shifts, household relationship dynamics, and temporal context that together indicate a family is approaching financial difficulty.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Design and train a multi-modal neural network that fuses transaction data, conversational text, and household graph structure to proactively detect distress, frame coaching interventions, assess timing urgency, and identify household tension before it escalates into crisis.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">Architected a 116M-parameter multi-modal network: FinBERT text encoder, 4-layer Transformer for transaction sequences, and 3-layer Graph Attention Network for household relationships. Designed cross-modal gated attention fusion and 6 task heads covering distress detection (with sub-types), coaching framing, timing urgency, delay scoring, household tension, and goal risk assessment.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">0.903</span>
+                                    <span class="text-xs text-slate-500">Distress F1 Score</span>
+                                </div>
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">116M</span>
+                                    <span class="text-xs text-slate-500">Parameters</span>
+                                </div>
+                                <div class="bg-teal-50 p-3 rounded border border-teal-200">
+                                    <span class="block text-xl font-bold text-teal-600">6</span>
+                                    <span class="text-xs text-slate-500">Task Heads</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">FinBERT</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Transformer</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">GAT</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Multi-Modal Fusion</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">PyTorch</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SIGNATURE ACHIEVEMENTS: INDEED -->
+        <!-- ============================================================ -->
         <div class="section-header">
             <h2>Signature Achievements <span class="text-slate-400 font-light">/ Indeed</span></h2>
             <div class="section-line"></div>
         </div>
 
-        <!-- Full Width Cards Stack -->
         <div class="flex flex-col gap-12 mb-20">
             
             <!-- Case Study 1: Campaign Recommendations -->
@@ -247,17 +444,23 @@
                     <span class="tag bg-green-100 text-green-700 border border-green-200 mt-2 md:mt-0">Scale & Revenue</span>
                 </div>
                 <div class="card-body">
-                    <div class="grid md:grid-cols-3 gap-8">
+                    <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Challenge</h4>
-                            <p class="text-base text-slate-700">Employers often under-spent or misallocated budgets due to lack of insight. I identified an opportunity to use ML to guide them toward high-value actions.</p>
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">Employers on Indeed's platform frequently under-spent or misallocated their advertising budgets due to a lack of data-driven insight, leaving significant revenue on the table across 150k+ employer accounts.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
-                            <p class="text-base text-slate-700">I owned the product strategy for a multi-signal ML model that ranked actions (e.g., "Adjust Bid"). I drove the implementation of a <strong>one-click side-panel design</strong> to reduce friction, leveraging "least effort" psychology.</p>
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Design and ship an ML-powered recommendation system that would guide employers toward high-value campaign actions, increasing both employer ROI and platform revenue at global scale.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">Owned end-to-end product strategy for a multi-signal ML model that ranked employer actions (e.g., "Adjust Bid," "Increase Budget"). Drove the implementation of a <strong>one-click side-panel design</strong> to minimise friction, applying "least effort" behavioural psychology to maximise adoption.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
                             <div class="flex gap-4 mt-2">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-200">
                                     <span class="block text-xl font-bold text-green-600">£60M</span>
@@ -270,7 +473,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Visual at Bottom -->
                     <div class="visual-container">
                         <img src="revenue_growth.png" alt="Revenue Growth Chart">
                         <div class="caption">Fig 1: Cumulative revenue uplift</div>
@@ -285,17 +487,23 @@
                     <span class="tag bg-purple-100 text-purple-700 border border-purple-200 mt-2 md:mt-0">UX & Adoption</span>
                 </div>
                 <div class="card-body">
-                    <div class="grid md:grid-cols-3 gap-8">
+                    <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Challenge</h4>
-                            <p class="text-base text-slate-700">SMEs struggled with scattered prompts and notifications. Recommendation logic that worked for enterprise clients didn't translate to small businesses.</p>
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">SMEs on Indeed's platform were overwhelmed by scattered prompts and notifications. Recommendation logic designed for enterprise clients failed to translate to the needs and cognitive capacity of small business owners.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
-                            <p class="text-base text-slate-700">I conceptualized and launched <strong>Action Center</strong>, a unified "Inbox" for prioritized recommendations. This centralization reduced "decision fatigue" and streamlined user journeys.</p>
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Create a unified experience that consolidates all prioritised recommendations into a single destination, reducing decision fatigue and driving sustained adoption among SME employers.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">Conceptualised and launched <strong>Action Center</strong>, a unified "Inbox" for prioritised recommendations. Applied behavioural design principles to centralise the user journey, reducing cognitive load and streamlining the path from insight to action for SME employers.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
                             <div class="flex gap-4 mt-2">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-200">
                                     <span class="block text-xl font-bold text-purple-600">100x</span>
@@ -308,7 +516,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Visual at Bottom -->
                     <div class="visual-container">
                         <img src="action_center_visits.png" alt="Action Center Visits">
                         <div class="caption">Fig 2: Weekly unique visits growth</div>
@@ -316,7 +523,7 @@
                 </div>
             </div>
 
-            <!-- Case Study 2b: Conversions (New Section) -->
+            <!-- Case Study 2b: Conversions -->
             <div class="card border-l-4 border-indigo-500">
                 <div class="card-header flex flex-wrap justify-between items-center">
                     <h3 class="text-2xl font-bold text-slate-800">Conversions Platform</h3>
@@ -325,11 +532,21 @@
                 <div class="card-body">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Strategy</h4>
-                            <p class="text-base text-slate-700">I led the initiative to streamline sponsorship and payment processes for SMEs. By simplifying the funnel, I created new conversion pathways that reduced friction for first-time advertisers.</p>
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">Indeed's sponsorship and payment funnel presented significant friction for first-time SME advertisers, creating a bottleneck in the monetisation pipeline and limiting new revenue growth.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Commercial Impact</h4>
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Streamline the end-to-end sponsorship and payment process to reduce drop-off, create new conversion pathways, and unlock revenue from previously unconverted SME advertisers.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">Led the initiative to simplify the sponsorship funnel end-to-end. Designed new conversion pathways that reduced friction for first-time advertisers, applying behavioural simplification to each step of the payment and activation journey.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
                             <div class="flex gap-4 mt-2">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-200">
                                     <span class="block text-xl font-bold text-indigo-600">£70M</span>
@@ -345,7 +562,7 @@
                 </div>
             </div>
 
-            <!-- Case Study 3 -->
+            <!-- Case Study 3: Campaigns 2.0 & Talent Scout -->
             <div class="card">
                 <div class="card-header flex flex-wrap justify-between items-center">
                     <h3 class="text-2xl font-bold text-slate-800">Campaigns 2.0 & Talent Scout</h3>
@@ -354,19 +571,36 @@
                 <div class="card-body">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
-                            <p class="text-base text-slate-700">As <strong>DRI</strong>, I led the reimagining of the sponsorship framework. I applied behavioural simplification to create a "Performance-Driven" model. This backend logic laid the foundation for <strong>Talent Scout</strong>, Indeed's first external-facing AI agent.</p>
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">Indeed's legacy sponsorship framework was complex and error-prone, leading to suboptimal employer outcomes and limiting the platform's ability to surface AI-driven hiring capabilities to the market.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
-                            <ul class="text-base text-slate-700 list-disc list-inside">
-                                <li><span class="font-bold text-blue-600">25%</span> revenue uplift in pilots.</li>
-                                <li><strong>59%</strong> increase in jobs receiving applications.</li>
-                                <li>Significant reduction in user error rates.</li>
-                            </ul>
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Reimagine the sponsorship framework from the ground up, applying behavioural simplification to create a performance-driven model that could also serve as the foundation for Indeed's first external-facing AI agent.</p>
                         </div>
                     </div>
-                    <!-- Visual at Bottom -->
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">As <strong>DRI</strong>, led the complete reimagining of the sponsorship framework. Applied behavioural simplification to create a "Performance-Driven" model. The backend logic and product architecture laid the foundation for <strong>Talent Scout</strong>, Indeed's first external-facing AI agent for employers.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
+                            <div class="space-y-2 mt-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl font-bold text-blue-600">25%</span>
+                                    <span class="text-base text-slate-600">revenue uplift in pilots</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl font-bold text-blue-600">59%</span>
+                                    <span class="text-base text-slate-600">increase in jobs receiving applications</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm text-slate-600">Significant reduction in user error rates</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="visual-container">
                         <img src="daily_seekers.png" alt="Daily Seekers">
                         <div class="caption">Fig 3: Growth in Daily Active Job Seekers</div>
@@ -374,7 +608,7 @@
                 </div>
             </div>
 
-            <!-- Case Study 4 -->
+            <!-- Case Study 4: Stack Overflow -->
             <div class="card">
                 <div class="card-header flex flex-wrap justify-between items-center">
                     <h3 class="text-2xl font-bold text-slate-800">Stack Overflow Partnership</h3>
@@ -383,18 +617,27 @@
                 <div class="card-body">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Strategy</h4>
-                            <p class="text-base text-slate-700">I led the product strategy for this first-of-its-kind integration. I orchestrated the embedding of Indeed's matching engine into Stack Overflow to reach passive tech talent seamlessly.</p>
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">Employers hiring for technical roles struggled to reach passive developer talent. Stack Overflow had the audience but lacked a native job-matching engine capable of surfacing relevant opportunities without disrupting the developer experience.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Impact</h4>
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Lead the product strategy for a first-of-its-kind integration, embedding Indeed's matching engine directly into the Stack Overflow experience to reach passive tech talent seamlessly.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">Orchestrated the cross-company integration, designing the product experience for embedding Indeed's matching engine within Stack Overflow's UI. Managed the partnership dynamics across engineering, design, and commercial teams at both organisations to ensure a seamless, native-feeling experience for developers.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
                             <div class="flex items-center gap-3 mt-2">
                                 <span class="text-3xl font-bold text-orange-600">3.5x</span>
                                 <span class="text-base text-slate-600">Increase in relevant tech applications during the pilot phase.</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Visual at Bottom -->
                     <div class="visual-container">
                         <img src="stackoverflow_ui.png" alt="Stack Overflow UI">
                         <div class="caption">Fig 4: Seamless UI Integration</div>
@@ -402,7 +645,7 @@
                 </div>
             </div>
 
-            <!-- Case Study 5 -->
+            <!-- Case Study 5: Job Optimisation -->
             <div class="card">
                 <div class="card-header flex flex-wrap justify-between items-center">
                     <h3 class="text-2xl font-bold text-slate-800">Job Optimisation System</h3>
@@ -411,15 +654,24 @@
                 <div class="card-body">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Innovation</h4>
-                            <p class="text-base text-slate-700">I guided the shift from a fragmented set of 16 prompts to a sequenced, value-driven nudge system based on 5 priority dimensions (Salary, Title, Location, etc.).</p>
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">Employers received a fragmented set of 16 disconnected prompts to improve job postings, resulting in low acceptance rates and high abandonment. The system lacked prioritisation, overwhelming users with undifferentiated suggestions.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Result</h4>
-                            <p class="text-base text-slate-700">Higher acceptance rates and significantly lower abandonment on optimized jobs.</p>
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Transform the job optimisation experience from a scattered prompt system into a sequenced, value-driven nudge framework that employers would actually follow through on.</p>
                         </div>
                     </div>
-                    <!-- Visual at Bottom -->
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">Guided the shift from 16 fragmented prompts to a sequenced nudge system based on 5 priority dimensions (Salary, Title, Location, Description, Requirements). Applied behavioural design to present the highest-impact optimisation first, reducing cognitive load and increasing follow-through.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
+                            <p class="text-base text-slate-700 mt-2">Higher acceptance rates and significantly lower abandonment on optimised jobs. Achieved the first consistent employer experience across the platform in years.</p>
+                        </div>
+                    </div>
                     <div class="visual-container">
                         <img src="job_optimisation_before_after.png" alt="Before After UI">
                         <div class="caption">Fig 5: Transformation of Employer Journey</div>
@@ -429,7 +681,9 @@
 
         </div>
 
-        <!-- Enterprise Efficiency: Standard Bank (New Section) -->
+        <!-- ============================================================ -->
+        <!-- ENTERPRISE EFFICIENCY: STANDARD BANK -->
+        <!-- ============================================================ -->
         <div class="section-header">
             <h2>Enterprise Efficiency <span class="text-slate-400 font-light">/ Standard Bank</span></h2>
             <div class="section-line"></div>
@@ -443,13 +697,21 @@
                     
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Strategic Initiative</h4>
-                            <p class="text-base text-slate-700">
-                                Led the international rollout of FlexNet Manager to oversee software assets across regions. Coordinated stakeholders in a matrixed, distributed organization to ensure compliance and efficiency.
-                            </p>
+                            <div class="star-label star-s"><span class="star-letter">S</span> Situation</div>
+                            <p class="text-base text-slate-700">Standard Bank, operating across multiple regions, lacked centralised visibility into software licensing. This led to significant over-spending on enterprise licenses, compliance risk, and fragmented vendor relationships across a matrixed, distributed organisation.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Financial Impact</h4>
+                            <div class="star-label star-t"><span class="star-letter">T</span> Task</div>
+                            <p class="text-base text-slate-700">Lead the international rollout of a centralised software asset management system to provide cross-regional visibility, ensure compliance, and identify cost optimisation opportunities across the enterprise.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <div class="star-label star-a"><span class="star-letter">A</span> Action</div>
+                            <p class="text-base text-slate-700">Led the international rollout of FlexNet Manager to oversee software assets across regions. Coordinated stakeholders across a matrixed organisation, managing complex vendor negotiations and establishing governance frameworks to ensure ongoing compliance and efficiency.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="star-label star-r"><span class="star-letter">R</span> Result</div>
                             <div class="flex gap-4 mt-2">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-200">
                                     <span class="block text-xl font-bold text-slate-800">ZAR 200M+</span>
@@ -466,7 +728,9 @@
             </div>
         </div>
 
-        <!-- Previous Innovations: PwC (Grid Layout preserved here as no complex charts) -->
+        <!-- ============================================================ -->
+        <!-- PREVIOUS INNOVATIONS: PWC -->
+        <!-- ============================================================ -->
         <div class="section-header">
             <h2>Previous Innovations <span class="text-slate-400 font-light">/ PwC FinTech & LegalTech</span></h2>
             <div class="section-line"></div>
@@ -479,10 +743,13 @@
                 <div class="card-body">
                     <h3 class="font-bold text-lg mb-1">Global VAT Online</h3>
                     <span class="text-xs font-semibold text-indigo-600 uppercase mb-4 block">FinTech / Tax</span>
-                    <p class="text-sm text-slate-600 mb-4">
-                        I re-launched GVO as a "Netflix for Indirect Tax." I led the Globesearch revamp (337 topics, 27 themes) and introduced automated newsletters.
-                    </p>
+                    <div class="space-y-3 text-sm text-slate-600 mb-4">
+                        <p><span class="font-semibold text-slate-500">S:</span> PwC's indirect tax platform suffered from high churn and low user engagement, with clients struggling to navigate 337 tax topics across 27 themes.</p>
+                        <p><span class="font-semibold text-slate-500">T:</span> Re-launch GVO with a consumer-grade experience, reducing churn and driving recurring revenue growth.</p>
+                        <p><span class="font-semibold text-slate-500">A:</span> Repositioned GVO as a "Netflix for Indirect Tax." Led the Globesearch revamp and introduced automated newsletters tailored to client jurisdictions.</p>
+                    </div>
                     <div class="bg-indigo-50 p-3 rounded text-sm border border-indigo-100">
+                        <div class="star-label star-r mb-1"><span class="star-letter">R</span> Result</div>
                         <ul class="list-disc list-inside text-indigo-900 space-y-1">
                             <li><strong>30%</strong> reduced churn</li>
                             <li><strong>£2.3M</strong> Annual Recurring Revenue</li>
@@ -500,10 +767,13 @@
                 <div class="card-body">
                     <h3 class="font-bold text-lg mb-1">Contract Counsel</h3>
                     <span class="text-xs font-semibold text-red-600 uppercase mb-4 block">LawTech / AI</span>
-                    <p class="text-sm text-slate-600 mb-4">
-                        I led the development of a multi-tenant AI platform with dual modes: <strong>Pre-screening</strong> and <strong>Portfolio Analysis</strong>. Implemented AAA accessibility.
-                    </p>
+                    <div class="space-y-3 text-sm text-slate-600 mb-4">
+                        <p><span class="font-semibold text-slate-500">S:</span> Legal teams at large enterprises faced manual, time-consuming contract review processes with no consistent risk profiling methodology.</p>
+                        <p><span class="font-semibold text-slate-500">T:</span> Build a multi-tenant AI platform capable of pre-screening and portfolio-level contract analysis with AAA accessibility compliance.</p>
+                        <p><span class="font-semibold text-slate-500">A:</span> Led product development of a dual-mode AI platform (<strong>Pre-screening</strong> and <strong>Portfolio Analysis</strong>). Drove deep user research to achieve product-market fit and implemented AAA accessibility standards.</p>
+                    </div>
                     <div class="bg-red-50 p-3 rounded text-sm border border-red-100">
+                        <div class="star-label star-r mb-1"><span class="star-letter">R</span> Result</div>
                         <ul class="list-disc list-inside text-red-900 space-y-1">
                             <li><strong>£20M</strong> sales pipeline (2 months)</li>
                             <li>Automated risk profiling</li>
@@ -521,10 +791,13 @@
                 <div class="card-body">
                     <h3 class="font-bold text-lg mb-1">Pensions Options</h3>
                     <span class="text-xs font-semibold text-orange-600 uppercase mb-4 block">FinTech</span>
-                    <p class="text-sm text-slate-600 mb-4">
-                        To solve low member engagement, I delivered a platform with <strong>personalized video summaries</strong> simplifying complex financial options.
-                    </p>
+                    <div class="space-y-3 text-sm text-slate-600 mb-4">
+                        <p><span class="font-semibold text-slate-500">S:</span> Pension scheme members showed chronically low engagement with their retirement options, struggling to understand complex financial choices presented through dense documentation.</p>
+                        <p><span class="font-semibold text-slate-500">T:</span> Deliver a platform that would simplify complex pension options and drive meaningful member engagement through personalisation.</p>
+                        <p><span class="font-semibold text-slate-500">A:</span> Built a platform with <strong>personalised video summaries</strong> that translated complex financial options into accessible, individualised visual explanations for each member.</p>
+                    </div>
                     <div class="bg-orange-50 p-3 rounded text-sm border border-orange-100">
+                        <div class="star-label star-r mb-1"><span class="star-letter">R</span> Result</div>
                         <ul class="list-disc list-inside text-orange-900 space-y-1">
                             <li><strong>£700k</strong> ARR in 2 months</li>
                             <li>High member engagement</li>
@@ -578,7 +851,7 @@
             </div>
         </section>
 
-        <!-- Technical Toolkit Strip (Moved to end) -->
+        <!-- Technical Toolkit Strip -->
         <section class="mb-12 bg-white rounded-xl p-6 border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-6">
             <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest">Technical Toolkit</h3>
             <div class="flex flex-wrap gap-8 text-slate-600">
@@ -601,7 +874,7 @@
             </div>
         </section>
 
-        <!-- Certifications (Moved to end) -->
+        <!-- Certifications -->
         <section class="mb-12 bg-white rounded-xl p-6 border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-6">
             <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest">Certifications</h3>
             <div class="flex flex-wrap gap-8 text-slate-600">
@@ -616,9 +889,8 @@
             </div>
         </section>
 
-        <!-- Improved Future Vision Section -->
+        <!-- Future Vision Section -->
         <section class="future-card mb-20">
-            <!-- Decorative Elements -->
             <div class="future-blob w-64 h-64 bg-blue-500 -top-10 -left-10"></div>
             <div class="future-blob w-64 h-64 bg-purple-500 -bottom-10 -right-10"></div>
             
@@ -657,9 +929,9 @@
             </div>
         </section>
 
-        <!-- Footer / Contact -->
+        <!-- Footer -->
         <div class="text-center pt-10 border-t border-slate-200">
-            <p class="text-xs text-slate-400 uppercase tracking-widest">Shen Vanamamalai • 2025</p>
+            <p class="text-xs text-slate-400 uppercase tracking-widest">Shen Vanamamalai &bull; 2026</p>
         </div>
 
     </main>
