@@ -188,10 +188,67 @@
         }
 
         @media print {
-            body { background-color: white; }
-            .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
-            .no-print { display: none; }
-            .future-card { background: #1e293b !important; -webkit-print-color-adjust: exact; }
+            /* Reset background and sizing */
+            *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            body { background-color: white !important; margin: 0; padding: 0; font-size: 11pt; }
+            
+            /* Hide non-print elements */
+            .no-print, #downloadBtn { display: none !important; }
+
+            /* Force single-column layout for all grids */
+            .grid { display: block !important; }
+            .grid > * { margin-bottom: 1rem; }
+            .md\:grid-cols-2 > *, .md\:grid-cols-3 > *, .md\:grid-cols-12 > * { width: 100% !important; }
+
+            /* Prevent page breaks inside cards and sections */
+            .card, .card-body, .visual-container, section, 
+            .bg-white, .future-card { break-inside: avoid; page-break-inside: avoid; }
+            
+            /* Force page breaks before major sections */
+            .section-header { break-before: page; page-break-before: always; margin-top: 0; padding-top: 1rem; }
+            /* Don't break before the first section */
+            .section-header:first-of-type { break-before: auto; page-break-before: auto; }
+
+            /* Cards: clean up for print */
+            .card { box-shadow: none !important; border: 1px solid #ccc !important; margin-bottom: 1.5rem; }
+            .card:hover { transform: none !important; }
+
+            /* Hero section: compact for print */
+            header { padding: 2rem 1.5rem !important; margin-bottom: 1rem !important; }
+            header h1 { font-size: 2rem !important; }
+            header p { font-size: 0.9rem !important; }
+
+            /* Main content: tighter margins */
+            main { padding: 0 1.5rem !important; }
+
+            /* Images: constrain and keep with captions */
+            .visual-container { break-inside: avoid; page-break-inside: avoid; margin-top: 1rem; padding: 0.75rem; }
+            .visual-container img { max-height: 300px; width: auto; max-width: 100%; object-fit: contain; }
+
+            /* Personal statement: fix the sidebar layout */
+            .md\:col-span-1 { display: none !important; }
+            .md\:col-span-11 { width: 100% !important; }
+
+            /* Future vision section */
+            .future-card { background: #1e293b !important; padding: 2rem !important; break-inside: avoid; }
+            .future-blob { display: none !important; }
+            .future-card h2, .future-card h3 { color: white !important; }
+            .future-card p { color: #cbd5e1 !important; }
+
+            /* STAR labels: ensure colours print */
+            .star-label .star-letter { border: 1px solid #ccc; }
+
+            /* Flex wraps for metric boxes */
+            .flex { flex-wrap: wrap !important; }
+
+            /* Tech stack pills */
+            .rounded-full { border: 1px solid #e2e8f0; }
+
+            /* Endorsements section */
+            .bg-white.rounded-2xl { border: 1px solid #ccc !important; box-shadow: none !important; }
+
+            /* Page margins */
+            @page { margin: 15mm 12mm; }
         }
     </style>
 </head>
@@ -965,9 +1022,9 @@
     </main>
 
     <!-- Floating Download PDF Button -->
-    <button id="downloadBtn" onclick="downloadPDF()" class="no-print fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 group cursor-pointer" title="Download as PDF">
+    <button id="downloadBtn" onclick="downloadPDF()" class="no-print fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 group cursor-pointer" title="Save as PDF">
         <i class="fas fa-file-pdf text-lg group-hover:scale-110 transition-transform"></i>
-        <span class="text-sm font-semibold">Download PDF</span>
+        <span class="text-sm font-semibold">Save as PDF</span>
     </button>
 
     <!-- Scroll-aware: shrink to icon on scroll down, expand on scroll up -->
@@ -985,14 +1042,8 @@
             height: 48px;
             justify-content: center;
         }
-
-        /* PDF generation overrides */
-        @media print {
-            #downloadBtn { display: none !important; }
-        }
     </style>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         // Scroll behaviour: compact on scroll down, expand on scroll up
         let lastScrollY = 0;
@@ -1007,32 +1058,37 @@
         });
 
         function downloadPDF() {
-            const btn = document.getElementById('downloadBtn');
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin text-lg"></i><span class="text-sm font-semibold">Generating...</span>';
-            btn.disabled = true;
-
-            const element = document.querySelector('body');
-            const opt = {
-                margin:       [5, 0, 5, 0],
-                filename:     'Shen_Vanamamalai_Product_Portfolio.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true, scrollY: 0, windowWidth: 1280 },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
-            };
-
-            html2pdf().set(opt).from(element).save().then(() => {
-                btn.innerHTML = originalHTML;
-                btn.disabled = false;
-            }).catch(() => {
-                btn.innerHTML = originalHTML;
-                btn.disabled = false;
-                // Fallback to browser print
-                window.print();
-            });
+            // Track PDF download event
+            if (window.goatcounter && window.goatcounter.count) {
+                window.goatcounter.count({ path: 'pdf-download', title: 'PDF Download', event: true });
+            }
+            // Use browser's native print-to-PDF (Ctrl+P / Cmd+P > Save as PDF)
+            window.print();
         }
+
+        // Track scroll depth milestones (25%, 50%, 75%, 100%)
+        const scrollMilestones = new Set();
+        window.addEventListener('scroll', () => {
+            const scrollPercent = Math.round(
+                (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+            );
+            [25, 50, 75, 100].forEach(milestone => {
+                if (scrollPercent >= milestone && !scrollMilestones.has(milestone)) {
+                    scrollMilestones.add(milestone);
+                    if (window.goatcounter && window.goatcounter.count) {
+                        window.goatcounter.count({
+                            path: 'scroll-' + milestone,
+                            title: 'Scrolled ' + milestone + '%',
+                            event: true
+                        });
+                    }
+                }
+            });
+        });
     </script>
+
+    <script data-goatcounter="https://shen-portfolio.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
 
 </body>
 </html>
