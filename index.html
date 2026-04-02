@@ -964,5 +964,75 @@
 
     </main>
 
+    <!-- Floating Download PDF Button -->
+    <button id="downloadBtn" onclick="downloadPDF()" class="no-print fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 group cursor-pointer" title="Download as PDF">
+        <i class="fas fa-file-pdf text-lg group-hover:scale-110 transition-transform"></i>
+        <span class="text-sm font-semibold">Download PDF</span>
+    </button>
+
+    <!-- Scroll-aware: shrink to icon on scroll down, expand on scroll up -->
+    <style>
+        #downloadBtn {
+            transition: all 0.3s ease;
+        }
+        #downloadBtn.compact span {
+            display: none;
+        }
+        #downloadBtn.compact {
+            padding: 0.75rem;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            justify-content: center;
+        }
+
+        /* PDF generation overrides */
+        @media print {
+            #downloadBtn { display: none !important; }
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        // Scroll behaviour: compact on scroll down, expand on scroll up
+        let lastScrollY = 0;
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('downloadBtn');
+            if (window.scrollY > lastScrollY && window.scrollY > 200) {
+                btn.classList.add('compact');
+            } else {
+                btn.classList.remove('compact');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        function downloadPDF() {
+            const btn = document.getElementById('downloadBtn');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin text-lg"></i><span class="text-sm font-semibold">Generating...</span>';
+            btn.disabled = true;
+
+            const element = document.querySelector('body');
+            const opt = {
+                margin:       [5, 0, 5, 0],
+                filename:     'Shen_Vanamamalai_Product_Portfolio.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, scrollY: 0, windowWidth: 1280 },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+            }).catch(() => {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+                // Fallback to browser print
+                window.print();
+            });
+        }
+    </script>
+
 </body>
 </html>
