@@ -200,18 +200,22 @@
             .grid > * { margin-bottom: 1rem; }
             .md\:grid-cols-2 > *, .md\:grid-cols-3 > *, .md\:grid-cols-12 > * { width: 100% !important; }
 
-            /* Prevent page breaks inside cards and sections */
-            .card, .card-body, .visual-container, section, 
-            .bg-white, .future-card { break-inside: avoid; page-break-inside: avoid; }
-            
-            /* Force page breaks before major sections */
-            .section-header { break-before: page; page-break-before: always; margin-top: 0; padding-top: 1rem; }
-            /* Don't break before the first section */
-            .section-header:first-of-type { break-before: auto; page-break-before: auto; }
-
-            /* Cards: clean up for print */
+            /* Cards: LET them break across pages (they're too tall not to).
+               But NEVER break right after the header — keep it glued to the body. */
             .card { box-shadow: none !important; border: 1px solid #ccc !important; margin-bottom: 1.5rem; }
             .card:hover { transform: none !important; }
+            .card-header { break-after: avoid !important; page-break-after: avoid !important; }
+
+            /* Smaller blocks that CAN fit on one page — keep them intact */
+            .visual-container { break-inside: avoid; page-break-inside: avoid; margin-top: 1rem; padding: 0.75rem; }
+            .star-label { break-after: avoid; page-break-after: avoid; }
+            .space-y-4 { break-inside: avoid; page-break-inside: avoid; }
+
+            /* Section headers: don't force a page break, but don't orphan them either */
+            .section-header { break-after: avoid; page-break-after: avoid; margin-top: 2rem; padding-top: 1rem; }
+
+            /* Prevent widows/orphans in paragraphs */
+            p { orphans: 3; widows: 3; }
 
             /* Hero section: compact for print */
             header { padding: 2rem 1.5rem !important; margin-bottom: 1rem !important; }
@@ -221,9 +225,8 @@
             /* Main content: tighter margins */
             main { padding: 0 1.5rem !important; }
 
-            /* Images: constrain and keep with captions */
-            .visual-container { break-inside: avoid; page-break-inside: avoid; margin-top: 1rem; padding: 0.75rem; }
-            .visual-container img { max-height: 300px; width: auto; max-width: 100%; object-fit: contain; }
+            /* Images: constrain */
+            .visual-container img { max-height: 280px; width: auto; max-width: 100%; object-fit: contain; }
 
             /* Personal statement: fix the sidebar layout */
             .md\:col-span-1 { display: none !important; }
@@ -241,11 +244,17 @@
             /* Flex wraps for metric boxes */
             .flex { flex-wrap: wrap !important; }
 
+            /* Metric boxes: keep together */
+            .bg-slate-50, .bg-teal-50 { break-inside: avoid; page-break-inside: avoid; }
+
             /* Tech stack pills */
             .rounded-full { border: 1px solid #e2e8f0; }
 
             /* Endorsements section */
             .bg-white.rounded-2xl { border: 1px solid #ccc !important; box-shadow: none !important; }
+
+            /* Executive summary cards: keep each card intact */
+            section.grid > .card { break-inside: avoid; page-break-inside: avoid; }
 
             /* Page margins */
             @page { margin: 15mm 12mm; }
