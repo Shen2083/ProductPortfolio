@@ -188,76 +188,123 @@
         }
 
         @media print {
-            /* Reset background and sizing */
+            /* === FOUNDATION === */
             *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-            body { background-color: white !important; margin: 0; padding: 0; font-size: 11pt; }
-            
-            /* Hide non-print elements */
+            body { background-color: white !important; margin: 0; padding: 0; font-size: 10pt; color: #1e293b; }
+
+            /* Page margins. Uncheck "Headers and footers" in Chrome > More Settings for cleanest output. */
+            @page { margin: 10mm 12mm 10mm 12mm; }
+
+            /* Hide interactive elements */
             .no-print, #downloadBtn { display: none !important; }
 
-            /* Force single-column layout for all grids */
-            .grid { display: block !important; }
-            .grid > * { margin-bottom: 1rem; }
-            .md\:grid-cols-2 > *, .md\:grid-cols-3 > *, .md\:grid-cols-12 > * { width: 100% !important; }
-
-            /* Cards: LET them break across pages (they're too tall not to).
-               But NEVER break right after the header — keep it glued to the body. */
-            .card { box-shadow: none !important; border: 1px solid #ccc !important; margin-bottom: 1.5rem; }
-            .card:hover { transform: none !important; }
-            .card-header { break-after: avoid !important; page-break-after: avoid !important; }
-
-            /* Smaller blocks that CAN fit on one page — keep them intact */
-            .visual-container { break-inside: avoid; page-break-inside: avoid; margin-top: 1rem; padding: 0.75rem; }
-            .star-label { break-after: avoid; page-break-after: avoid; }
-            .space-y-4 { break-inside: avoid; page-break-inside: avoid; }
-
-            /* Section headers: don't force a page break, but don't orphan them either */
-            .section-header { break-after: avoid; page-break-after: avoid; margin-top: 2rem; padding-top: 1rem; }
-
-            /* Prevent widows/orphans in paragraphs */
-            p { orphans: 3; widows: 3; }
-
-            /* Hero section: compact for print */
-            header { padding: 2rem 1.5rem !important; margin-bottom: 1rem !important; }
-            header h1 { font-size: 2rem !important; }
-            header p { font-size: 0.9rem !important; }
-
-            /* Main content: tighter margins */
-            main { padding: 0 1.5rem !important; }
-
-            /* Images: constrain */
-            .visual-container img { max-height: 280px; width: auto; max-width: 100%; object-fit: contain; }
-
-            /* Personal statement: fix the sidebar layout */
+            /* === GRID: Keep 2-col for STAR content, 3-col for PwC cards === */
+            .grid { display: grid !important; }
+            .md\:grid-cols-2 { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+            .md\:grid-cols-3 { grid-template-columns: 1fr 1fr 1fr !important; gap: 0.75rem !important; }
+            .md\:grid-cols-12 { display: block !important; }
             .md\:col-span-1 { display: none !important; }
             .md\:col-span-11 { width: 100% !important; }
 
-            /* Future vision section */
-            .future-card { background: #1e293b !important; padding: 2rem !important; break-inside: avoid; }
-            .future-blob { display: none !important; }
-            .future-card h2, .future-card h3 { color: white !important; }
-            .future-card p { color: #cbd5e1 !important; }
+            /* === HERO === */
+            header { padding: 1.25rem 1.5rem !important; margin-bottom: 0.75rem !important; }
+            header h1 { font-size: 1.75rem !important; margin-bottom: 0.15rem !important; }
+            header .text-2xl.md\:text-3xl { font-size: 1.1rem !important; }
+            header p.mt-6 { margin-top: 0.5rem !important; font-size: 0.8rem !important; line-height: 1.4 !important; }
+            header .flex.flex-wrap.gap-3 .text-2xl { font-size: 1.1rem !important; }
+            header .flex.flex-wrap.gap-3 .text-xs { font-size: 0.55rem !important; }
+            header .px-4.py-2 { padding: 0.2rem 0.4rem !important; }
 
-            /* STAR labels: ensure colours print */
-            .star-label .star-letter { border: 1px solid #ccc; }
+            /* === CARDS === */
+            .card { box-shadow: none !important; border: 1px solid #d1d5db !important; margin-bottom: 1rem; border-radius: 6px !important; }
+            .card:hover { transform: none !important; }
+            .card-header { padding: 0.5rem 1rem !important; border-bottom: 1px solid #e5e7eb !important; break-after: avoid !important; page-break-after: avoid !important; }
+            .card-header h3 { font-size: 1rem !important; }
+            .card-body { padding: 0.85rem 1rem !important; }
+            .card-body p { font-size: 0.8rem !important; line-height: 1.45 !important; }
 
-            /* Flex wraps for metric boxes */
-            .flex { flex-wrap: wrap !important; }
+            /* === STAR LABELS === */
+            .star-label { margin-bottom: 0.2rem !important; font-size: 0.55rem !important; }
+            .star-label .star-letter { width: 0.9rem; height: 0.9rem; font-size: 0.5rem; border: 1px solid #ccc; }
 
-            /* Metric boxes: keep together */
-            .bg-slate-50, .bg-teal-50 { break-inside: avoid; page-break-inside: avoid; }
+            /* STAR blocks stay together */
+            .space-y-4 { break-inside: avoid; page-break-inside: avoid; }
 
-            /* Tech stack pills */
-            .rounded-full { border: 1px solid #e2e8f0; }
+            /* === SECTION HEADERS === */
+            .section-header { margin-top: 1.25rem !important; margin-bottom: 0.75rem !important; break-after: avoid; page-break-after: avoid; }
+            .section-header h2 { font-size: 1.15rem !important; }
 
-            /* Endorsements section */
-            .bg-white.rounded-2xl { border: 1px solid #ccc !important; box-shadow: none !important; }
-
-            /* Executive summary cards: keep each card intact */
+            /* === EXEC SUMMARY TILES === */
             section.grid > .card { break-inside: avoid; page-break-inside: avoid; }
+            section.grid > .card .card-body { padding: 0.6rem !important; }
+            section.grid > .card h3 { font-size: 0.85rem !important; }
+            section.grid > .card p { font-size: 0.75rem !important; }
+            section.grid > .card .fa-2x { font-size: 1.1rem !important; }
+            section.grid.mb-16 { margin-bottom: 0.5rem !important; }
 
-            /* Page margins */
-            @page { margin: 15mm 12mm; }
+            /* === PERSONAL STATEMENT === */
+            section.mb-16.relative { margin-bottom: 0.75rem !important; }
+            section.mb-16.relative .p-8, section.mb-16.relative .md\:p-12 { padding: 1rem !important; }
+            section.mb-16.relative h2 { font-size: 1rem !important; margin-bottom: 0.5rem !important; }
+            section.mb-16.relative .space-y-4 p { font-size: 0.8rem !important; line-height: 1.45 !important; }
+
+            /* === IMAGES === */
+            .visual-container { break-inside: avoid; page-break-inside: avoid; margin-top: 0.5rem; padding: 0.35rem; }
+            .visual-container img { max-height: 180px; width: auto; max-width: 100%; object-fit: contain; border: 1px solid #e2e8f0; }
+            .caption { font-size: 0.65rem !important; margin-top: 0.35rem; padding: 0.15rem 0.5rem !important; }
+
+            /* === METRIC BOXES === */
+            .bg-slate-50, .bg-teal-50 { break-inside: avoid; padding: 0.4rem !important; }
+            .bg-slate-50 .text-xl, .bg-teal-50 .text-xl { font-size: 0.95rem !important; }
+            .bg-slate-50 .text-xs, .bg-teal-50 .text-xs { font-size: 0.6rem !important; }
+            .text-xs.text-slate-500.mt-3 { font-size: 0.6rem !important; margin-top: 0.25rem !important; }
+
+            /* === TAGS === */
+            .tag { font-size: 0.55rem !important; padding: 0.1rem 0.4rem !important; }
+
+            /* === TECH STACK PILLS === */
+            .rounded-full { font-size: 0.6rem !important; padding: 0.1rem 0.4rem !important; border: 1px solid #e2e8f0; }
+
+            /* === SPACING OVERRIDES === */
+            .flex { flex-wrap: wrap !important; }
+            .gap-12 { gap: 0.85rem !important; }
+            .gap-8 { gap: 0.65rem !important; }
+            .gap-6 { gap: 0.5rem !important; }
+            .mb-20 { margin-bottom: 1rem !important; }
+            .mt-8 { margin-top: 0.5rem !important; }
+
+            /* === PWC CARDS === */
+            .css-icon-visual { height: 60px !important; margin-top: 0.5rem !important; }
+            .css-icon-visual .text-4xl { font-size: 1.25rem !important; }
+            .css-icon-visual .text-xs { font-size: 0.55rem !important; }
+
+            /* === ENDORSEMENTS === */
+            .bg-white.rounded-2xl { border: 1px solid #d1d5db !important; box-shadow: none !important; padding: 1rem !important; margin-bottom: 0.75rem !important; }
+            .bg-white.rounded-2xl p { font-size: 0.75rem !important; }
+            .bg-white.rounded-2xl .text-sm { font-size: 0.75rem !important; }
+            .bg-white.rounded-2xl .text-xs { font-size: 0.6rem !important; }
+            .bg-white.rounded-2xl h2 { font-size: 1.1rem !important; }
+
+            /* === TOOLKIT + CERTS === */
+            section.mb-12 { margin-bottom: 0.35rem !important; padding: 0.4rem 0.6rem !important; }
+            section.mb-12 .text-sm { font-size: 0.7rem !important; }
+            section.mb-12 .text-2xl { font-size: 0.9rem !important; }
+            section.mb-12 .gap-8 { gap: 0.75rem !important; }
+
+            /* === FUTURE VISION === */
+            .future-card { background: #1e293b !important; padding: 1.25rem !important; break-inside: avoid; margin-bottom: 0.35rem !important; }
+            .future-blob { display: none !important; }
+            .future-card h2 { color: white !important; font-size: 1.15rem !important; margin-bottom: 0.6rem !important; padding-bottom: 0.35rem !important; }
+            .future-card h3 { color: white !important; font-size: 0.9rem !important; }
+            .future-card p { color: #cbd5e1 !important; font-size: 0.75rem !important; line-height: 1.45 !important; }
+            .future-card .gap-12 { gap: 0.75rem !important; }
+
+            /* === FOOTER === */
+            .pt-10 { padding-top: 0.35rem !important; }
+
+            /* === TYPOGRAPHY === */
+            p { orphans: 3; widows: 3; }
+            main { padding: 0 1rem !important; }
         }
     </style>
 </head>
