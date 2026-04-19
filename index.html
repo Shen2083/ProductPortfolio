@@ -187,6 +187,30 @@
             opacity: 0.2;
         }
 
+        /* Gleam animation for Book a Chat button */
+        .gleam-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(
+                105deg,
+                transparent 30%,
+                rgba(255,255,255,0.15) 45%,
+                rgba(255,255,255,0.25) 50%,
+                rgba(255,255,255,0.15) 55%,
+                transparent 70%
+            );
+            animation: gleam 3s ease-in-out infinite;
+        }
+
+        @keyframes gleam {
+            0%, 100% { left: -100%; }
+            50% { left: 150%; }
+        }
+
         @media print {
             /* === FOUNDATION === */
             *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -357,7 +381,7 @@
                 <a href="https://drive.google.com/uc?export=download&id=13_lCq0TFnLqsb11tSsNi01RJgToHplll" target="_blank" onclick="if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:'resume-download',title:'Resume Download',event:true})}" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-3 py-1 rounded-full transition-colors text-sm border border-white/20">
                     <i class="fas fa-file-alt text-lg"></i> Download Resume
                 </a>
-                <a href="https://cal.com/shenv" target="_blank" onclick="if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:'calendar-booking',title:'Calendar Booking',event:true})}" class="flex items-center gap-2 bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 px-3 py-1 rounded-full transition-colors text-sm border border-teal-500/30">
+                <a href="https://cal.com/shenv" target="_blank" onclick="if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:'calendar-booking',title:'Calendar Booking',event:true})}" class="gleam-btn flex items-center gap-2 bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 px-3 py-1 rounded-full transition-colors text-sm border border-teal-500/30 relative overflow-hidden">
                     <i class="fas fa-calendar-alt text-lg"></i> Book a Chat
                 </a>
             </div>
@@ -1374,6 +1398,14 @@ Also published a novella "The Kind One" on Amazon KDP.`;
             window.goatcounter.count({ path: 'chat-talk-to-shen', title: 'Talk to Shen Clicked', event: true });
         }
     }
+
+    // Auto-open chat after 3 seconds on first visit
+    setTimeout(() => {
+        const panel = document.getElementById('chatPanel');
+        if (panel && panel.classList.contains('hidden')) {
+            toggleChat();
+        }
+    }, 3000);
     </script>
 
     <!-- Tawk.to Live Chat: hidden by default, opens via "Talk to Shen directly" button -->
