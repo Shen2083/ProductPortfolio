@@ -1221,7 +1221,7 @@
     // ---- Chat Widget Logic ----
     const PROXY_URL = 'https://portfolio-chat-proxy.vshenbagaraja.workers.dev';
 
-    const SYSTEM_PROMPT = `You are a helpful assistant embedded on Shen Vanamamalai's product portfolio website. Answer questions about his experience, skills, and projects based only on the information below. Be concise, warm, and professional. If you don't know something or the answer isn't covered below, say so honestly and suggest they click "Talk to Shen directly" for a personal response. Never invent details.
+    const SYSTEM_PROMPT = `You are a helpful assistant embedded on Shen Vanamamalai's product portfolio website. Answer questions about his experience, skills, and projects based only on the information below. Be concise, warm, and conversational. Keep responses short (3-5 sentences for simple questions, a bit more for detailed ones). Use **bold** sparingly for key numbers or names only. Do not use headers, bullet lists, or heavy formatting. This is a chat widget, not a document. If you don't know something or the answer isn't covered below, say so honestly and suggest they click "Talk to Shen directly" for a personal response. Never invent details.
 
 ABOUT SHEN:
 Product leader with 20+ years across financial services, marketplace platforms, and AI. Based in London, UK. First engineer in his family, from a small town at the southernmost tip of India.
@@ -1276,10 +1276,20 @@ Also published a novella "The Kind One" on Amazon KDP.`;
         if (isUser) {
             wrapper.innerHTML = `<div class="bg-slate-900 text-white rounded-xl rounded-tr-sm px-3 py-2 text-sm max-w-[85%]">${escapeHtml(text)}</div>`;
         } else {
-            wrapper.innerHTML = `<div class="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center text-xs text-white font-bold flex-shrink-0 mt-1">S</div><div class="bg-slate-100 rounded-xl rounded-tl-sm px-3 py-2 text-sm text-slate-700 max-w-[85%]">${text}</div>`;
+            wrapper.innerHTML = `<div class="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center text-xs text-white font-bold flex-shrink-0 mt-1">S</div><div class="bg-slate-100 rounded-xl rounded-tl-sm px-3 py-2 text-sm text-slate-700 max-w-[85%]">${formatMarkdown(text)}</div>`;
         }
         container.appendChild(wrapper);
         container.scrollTop = container.scrollHeight;
+    }
+
+    function formatMarkdown(text) {
+        return escapeHtml(text)
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')       // **bold**
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')                   // *italic*
+            .replace(/^- (.+)$/gm, '<li style="margin-left:1rem">$1</li>') // - list items
+            .replace(/(<li.*<\/li>\n?)+/g, '<ul class="my-1">$&</ul>')     // wrap lists
+            .replace(/\n\n/g, '<br><br>')                            // double newline = paragraph
+            .replace(/\n/g, '<br>');                                  // single newline = line break
     }
 
     function addTypingIndicator() {
