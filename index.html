@@ -1097,7 +1097,7 @@
     </main>
 
     <!-- Floating Download PDF Button -->
-    <button id="downloadBtn" onclick="downloadPDF()" class="no-print fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 group cursor-pointer" title="Save as PDF">
+    <button id="downloadBtn" onclick="downloadPDF()" class="no-print fixed bottom-6 left-6 z-50 flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 group cursor-pointer" title="Save as PDF">
         <i class="fas fa-file-pdf text-lg group-hover:scale-110 transition-transform"></i>
         <span class="text-sm font-semibold">Save as PDF</span>
     </button>
@@ -1161,6 +1161,225 @@
             });
         });
     </script>
+
+    <!-- ============================================================ -->
+    <!-- AI CHAT WIDGET: Ask about Shen's experience -->
+    <!-- ============================================================ -->
+    <div id="chatWidget" class="no-print fixed bottom-6 right-6 z-50" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+        <!-- Toggle Button -->
+        <button id="chatToggle" onclick="toggleChat()" class="w-14 h-14 bg-slate-900 hover:bg-slate-800 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center" title="Ask about my experience">
+            <i id="chatIcon" class="fas fa-comment-dots text-xl"></i>
+        </button>
+
+        <!-- Chat Panel -->
+        <div id="chatPanel" class="hidden absolute bottom-16 right-0 w-[380px] max-h-[520px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden" style="max-width: calc(100vw - 2rem);">
+            <!-- Header -->
+            <div class="bg-slate-900 text-white px-5 py-3 flex items-center justify-between flex-shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center text-xs font-bold">SV</div>
+                    <div>
+                        <div class="font-semibold text-sm">Ask about Shen</div>
+                        <div class="text-xs text-slate-400">AI-powered, based on my portfolio</div>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Messages -->
+            <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3" style="min-height: 280px; max-height: 360px;">
+                <div class="flex gap-2">
+                    <div class="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center text-xs text-white font-bold flex-shrink-0 mt-1">S</div>
+                    <div class="bg-slate-100 rounded-xl rounded-tl-sm px-3 py-2 text-sm text-slate-700 max-w-[85%]">
+                        Hi! I can answer questions about Shen's experience, projects, and technical skills. What would you like to know?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input -->
+            <div class="border-t border-slate-200 p-3 flex-shrink-0">
+                <div class="flex gap-2">
+                    <input id="chatInput" type="text" placeholder="Ask about experience, Envis, Indeed..."
+                        class="flex-1 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+                        onkeydown="if(event.key==='Enter')sendMessage()">
+                    <button onclick="sendMessage()" class="bg-slate-900 hover:bg-slate-800 text-white px-3 py-2 rounded-lg transition-colors">
+                        <i class="fas fa-paper-plane text-sm"></i>
+                    </button>
+                </div>
+                <!-- Talk to Shen directly -->
+                <div class="mt-2 text-center">
+                    <button onclick="openTawkTo()" class="text-xs text-slate-500 hover:text-teal-600 transition-colors">
+                        <i class="fas fa-headset mr-1"></i> Want to talk to Shen directly? Start a live chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // ---- Chat Widget Logic ----
+    const PROXY_URL = 'https://portfolio-chat-proxy.vshenbagaraja.workers.dev';
+
+    const SYSTEM_PROMPT = `You are a helpful assistant embedded on Shen Vanamamalai's product portfolio website. Answer questions about his experience, skills, and projects based only on the information below. Be concise, warm, and professional. If you don't know something or the answer isn't covered below, say so honestly and suggest they click "Talk to Shen directly" for a personal response. Never invent details.
+
+ABOUT SHEN:
+Product leader with 20+ years across financial services, marketplace platforms, and AI. Based in London, UK. First engineer in his family, from a small town at the southernmost tip of India.
+
+CURRENT: Founder, Envis Technologies (Aug 2025 - Present)
+Building the first UK platform that treats the household as the financial unit. AI-powered coaching for couples and families.
+- Full-stack solo build: Django, React, PostgreSQL, Render, Yapily Open Banking
+- EnvisLM: proprietary coaching LLM (Llama 3 8B, QLoRA). 2x coaching content/word vs base models, 80.2% ROUGE-L win rate. Training cost ~$23.
+- Insight Engine: 116M-parameter multi-modal network (FinBERT + Transformer + GAT). 0.903 F1 on distress detection, 6 task heads.
+- Validated via 100-household Prolific study, Google Ads (7-8% CTR), 26 research-backed blog posts. UKES endorsed.
+
+INDEED: Product Manager (Jun 2022 - Oct 2025)
+- £60M attributed revenue uplift: ML-powered campaign recommendations across 150k+ employer accounts. One-click side panel design.
+- 100x adoption / £4.4M annual revenue: Action Center, unified recommendation inbox for SMEs.
+- £70M projected uplift: Redesigned sponsorship funnel. £4.8M pilot in 3 months.
+- Campaigns 2.0: Performance-Driven model, 25% revenue uplift, 59% more applications. Foundation for Talent Scout, Indeed's first AI agent.
+- Stack Overflow Partnership: 3.5x increase in tech applications.
+- Job Optimisation: Collapsed 16 prompts into sequenced 5-dimension nudge system.
+
+PWC UK: Product Manager (Jul 2018 - May 2022)
+- Global VAT Online: "Netflix for Indirect Tax." 30% churn reduction, £2.3M ARR.
+- Contract Counsel: AI contract review platform. £20M sales pipeline in 2 months. AAA accessibility.
+- Pensions Options: Personalised video summaries. £700K ARR in 2 months.
+
+STANDARD BANK: Senior Business Analyst (Dec 2013 - Jun 2018)
+- FlexNet Manager rollout. ZAR 200M+ licensing savings. ZAR 65M Oracle optimisation.
+
+EARLIER: Kaiser Permanente (Business Analyst), Standard Bank/IBM/Cognizant (Mainframe Engineer)
+
+TECH: Python, Django, React, PostgreSQL, PyTorch, QLoRA, HuggingFace, GAT, FinBERT, Open Banking APIs, Datadog
+
+EDUCATION: BE Automobile Engineering, PSG College of Technology, Coimbatore, India
+CERTS: Senior PM (Product Faculty), AI PM Bootcamp, Improving Product Sense (Shreyas Doshi)
+Also published a novella "The Kind One" on Amazon KDP.`;
+
+    function toggleChat() {
+        const panel = document.getElementById('chatPanel');
+        const icon = document.getElementById('chatIcon');
+        panel.classList.toggle('hidden');
+        icon.className = panel.classList.contains('hidden') ? 'fas fa-comment-dots text-xl' : 'fas fa-times text-xl';
+
+        if (!panel.classList.contains('hidden') && window.goatcounter && window.goatcounter.count) {
+            window.goatcounter.count({ path: 'chat-opened', title: 'Chat Opened', event: true });
+        }
+    }
+
+    function addMessage(text, isUser) {
+        const container = document.getElementById('chatMessages');
+        const wrapper = document.createElement('div');
+        wrapper.className = isUser ? 'flex gap-2 justify-end' : 'flex gap-2';
+
+        if (isUser) {
+            wrapper.innerHTML = `<div class="bg-slate-900 text-white rounded-xl rounded-tr-sm px-3 py-2 text-sm max-w-[85%]">${escapeHtml(text)}</div>`;
+        } else {
+            wrapper.innerHTML = `<div class="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center text-xs text-white font-bold flex-shrink-0 mt-1">S</div><div class="bg-slate-100 rounded-xl rounded-tl-sm px-3 py-2 text-sm text-slate-700 max-w-[85%]">${text}</div>`;
+        }
+        container.appendChild(wrapper);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    function addTypingIndicator() {
+        const container = document.getElementById('chatMessages');
+        const wrapper = document.createElement('div');
+        wrapper.id = 'typingIndicator';
+        wrapper.className = 'flex gap-2';
+        wrapper.innerHTML = `<div class="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center text-xs text-white font-bold flex-shrink-0 mt-1">S</div><div class="bg-slate-100 rounded-xl rounded-tl-sm px-3 py-2 text-sm text-slate-400"><i class="fas fa-circle text-[6px] animate-pulse mr-1"></i><i class="fas fa-circle text-[6px] animate-pulse mr-1" style="animation-delay:0.2s"></i><i class="fas fa-circle text-[6px] animate-pulse" style="animation-delay:0.4s"></i></div>`;
+        container.appendChild(wrapper);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+        const el = document.getElementById('typingIndicator');
+        if (el) el.remove();
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    const chatHistory = [];
+
+    async function sendMessage() {
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim();
+        if (!text) return;
+
+        input.value = '';
+        addMessage(text, true);
+
+        chatHistory.push({ role: 'user', content: text });
+
+        addTypingIndicator();
+
+        try {
+            const response = await fetch(PROXY_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: 'claude-sonnet-4-20250514',
+                    max_tokens: 400,
+                    system: SYSTEM_PROMPT,
+                    messages: chatHistory.slice(-6) // Keep last 3 exchanges for context
+                })
+            });
+
+            removeTypingIndicator();
+
+            if (!response.ok) throw new Error('API error');
+
+            const data = await response.json();
+            const reply = data.content.map(c => c.text || '').join('');
+
+            chatHistory.push({ role: 'assistant', content: reply });
+            addMessage(reply, false);
+
+            if (window.goatcounter && window.goatcounter.count) {
+                window.goatcounter.count({ path: 'chat-message', title: 'Chat Message Sent', event: true });
+            }
+        } catch (err) {
+            removeTypingIndicator();
+            addMessage('Sorry, I\'m having trouble connecting right now. You can <button onclick="openTawkTo()" class="underline text-teal-600 font-semibold">talk to Shen directly</button> or email <a href="mailto:vshenbagaraja@gmail.com" class="underline text-teal-600">vshenbagaraja@gmail.com</a>.', false);
+        }
+    }
+
+    function openTawkTo() {
+        // If Tawk.to is loaded, open it. Otherwise fall back to email.
+        if (typeof Tawk_API !== 'undefined') {
+            Tawk_API.maximize();
+        } else {
+            window.open('mailto:vshenbagaraja@gmail.com?subject=Question from your portfolio', '_blank');
+        }
+        if (window.goatcounter && window.goatcounter.count) {
+            window.goatcounter.count({ path: 'chat-talk-to-shen', title: 'Talk to Shen Clicked', event: true });
+        }
+    }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- TAWK.TO LIVE CHAT (free, handles email routing + replies)   -->
+    <!-- SETUP: 1) Sign up at https://www.tawk.to (free)             -->
+    <!--        2) Create a property for your portfolio               -->
+    <!--        3) Replace the script below with your embed code      -->
+    <!-- ============================================================ -->
+    <!--
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/YOUR_TAWK_PROPERTY_ID/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    -->
 
     <script data-goatcounter="https://shen-portfolio.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
