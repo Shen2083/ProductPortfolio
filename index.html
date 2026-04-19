@@ -1359,8 +1359,9 @@ Also published a novella "The Kind One" on Amazon KDP.`;
     }
 
     function openTawkTo() {
-        // If Tawk.to is loaded, open it. Otherwise fall back to email.
-        if (typeof Tawk_API !== 'undefined') {
+        // If Tawk.to is loaded, show and open it. Otherwise fall back to email.
+        if (typeof Tawk_API !== 'undefined' && Tawk_API.showWidget) {
+            Tawk_API.showWidget();
             Tawk_API.maximize();
         } else {
             window.open('mailto:vshenbagaraja@gmail.com?subject=Question from your portfolio', '_blank');
@@ -1371,25 +1372,22 @@ Also published a novella "The Kind One" on Amazon KDP.`;
     }
     </script>
 
-    <!-- ============================================================ -->
-    <!-- TAWK.TO LIVE CHAT (free, handles email routing + replies)   -->
-    <!-- SETUP: 1) Sign up at https://www.tawk.to (free)             -->
-    <!--        2) Create a property for your portfolio               -->
-    <!--        3) Replace the script below with your embed code      -->
-    <!-- ============================================================ -->
-    <!--
+    <!-- Tawk.to Live Chat: hidden by default, opens via "Talk to Shen directly" button -->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    // Hide the default Tawk.to bubble — we use our own AI chat button instead
+    Tawk_API.onLoad = function(){
+        Tawk_API.hideWidget();
+    };
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
-    s1.src='https://embed.tawk.to/YOUR_TAWK_PROPERTY_ID/default';
+    s1.src='https://embed.tawk.to/69e4b2c5c1d9b41c31c92dff/1jmilkle2';
     s1.charset='UTF-8';
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
     })();
     </script>
-    -->
 
     <script data-goatcounter="https://shen-portfolio.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
